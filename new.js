@@ -11,94 +11,106 @@ window.onload=function () {
     var timr=null
 
     var liNodes=document.querySelectorAll(".list li")
-    var firstLi=liNodes[0].querySelector(".down")
-    arrow.style.left=liNodes[0].getBoundingClientRect().left+liNodes[0].offsetWidth/2-arrow.offsetWidth/2+"px"
+    var firstLi=liNodes[0].querySelector(".down");
 
-    firstLi.style.width="100%"
+   init()
 
-    for (var i = 0; i <liNodes.length; i++) {
-            liNodes[i].index=i
-        var oldLi=firstLi
-        liNodes[i].onclick=function () {
-
-            sum=this.index
-
-           contentmove(sum)
-        }
-
-    }
-
-    window.onresize=function () {
-        arrow.style.left=liNodes[sum].getBoundingClientRect().left+liNodes[sum].offsetWidth/2-arrow.offsetWidth/2+"px"
-        child.style.top=-con.offsetHeight*sum+"px"
-
-    }
-
-  function move(newindex) {
-      var newLi=liNodes[newindex].querySelector(".down")
+   function init() {
 
 
-      oldLi.style.width=""
-      newLi.style.width="100%"
-      oldLi=newLi
-      arrow.style.left=liNodes[newindex].getBoundingClientRect().left+liNodes[newindex].offsetWidth/2-arrow.offsetWidth/2+"px"
-  }
+       for (var i = 0; i <liNodes.length; i++) {
+           liNodes[i].index=i
+           var oldLi=firstLi
+           liNodes[i].onclick=function () {
+
+               sum=this.index
+
+               contentmove(sum)
+           }
+
+       }
+       arrow.style.left=liNodes[0].getBoundingClientRect().left+liNodes[0].offsetWidth/2-arrow.offsetWidth/2+"px"
+
+       firstLi.style.width="100%";
 
 
-  document.addEventListener("DOMMouseScroll",wheel)
-  document.onmousewheel=wheel
 
 
-    function contentmove(sum) {
+       window.onresize=function () {
+           arrow.style.left=liNodes[sum].getBoundingClientRect().left+liNodes[sum].offsetWidth/2-arrow.offsetWidth/2+"px"
+           child.style.top=-con.offsetHeight*sum+"px"
 
-        child.style.top=-con.offsetHeight*sum+"px"
-        move(sum)
-    }
+       }
+       /*小三角移动*/
+       function move(newindex) {
+           var newLi=liNodes[newindex].querySelector(".down")
 
 
-    function wheel(event) {
-        clearTimeout(timr)
-        timr=setTimeout(function () {
-            event = event || window.event;
+           oldLi.style.width=""
+           newLi.style.width="100%"
+           oldLi=newLi
+           arrow.style.left=liNodes[newindex].getBoundingClientRect().left+liNodes[newindex].offsetWidth/2-arrow.offsetWidth/2+"px"
+       }
 
-            var flag = '';
-            if (event.wheelDelta) {
-                //ie/chrome
-                if (event.wheelDelta > 0) {
-                    flag = 'up';
-                } else {
-                    flag = 'down'
-                }
-            } else if (event.detail) {
-                //firefox
-                if (event.detail < 0) {
-                    flag = 'up';
-                } else {
-                    flag = 'down'
-                }
-            }
-            switch (flag) {
-                case 'up' :
+       /*滚轮事件*/
+       document.addEventListener("DOMMouseScroll",wheel)
+       document.onmousewheel=wheel
 
-                    if(sum>0){
-                        sum--
-                        contentmove(sum)
-                    }
+       /*主体移动*/
+       function contentmove(sum) {
 
-                    break;
-                case "down":
-                    if (sum<4){
-                        sum++
-                        contentmove(sum)
-                    }
+           child.style.top=-con.offsetHeight*sum+"px"
+           move(sum)
+       }
 
-                    break;
-            }
-            console.log(sum)
-        },200)
+       /*兼容滚轮事件*/
+       function wheel(event) {
+           clearTimeout(timr)
+           timr=setTimeout(function () {
+               event = event || window.event;
 
-        event.preventDefault && event.preventDefault();
+               var flag = '';
+               if (event.wheelDelta) {
+                   //ie/chrome
+                   if (event.wheelDelta > 0) {
+                       flag = 'up';
+                   } else {
+                       flag = 'down'
+                   }
+               } else if (event.detail) {
+                   //firefox
+                   if (event.detail < 0) {
+                       flag = 'up';
+                   } else {
+                       flag = 'down'
+                   }
+               }
+               switch (flag) {
+                   case 'up' :
 
-        return false;
-        }
+                       if(sum>0){
+                           sum--
+                           contentmove(sum)
+                       }
+
+                       break;
+                   case "down":
+                       if (sum<4){
+                           sum++
+                           contentmove(sum)
+                       }
+
+                       break;
+               }
+               console.log(sum)
+           },200)
+
+           event.preventDefault && event.preventDefault();
+
+           return false;
+       }
+
+
+   }
+
 }
