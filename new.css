@@ -1,0 +1,64 @@
+html,body{height: 100%;overflow: hidden;}
+html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
+a{text-decoration: none;display: block;}
+li{list-style: none;}
+img{display: block;}
+
+.clearfix{*zoom: 1;}
+.clearfix:after{content: "";display: block;clear: both;}
+
+.head{
+    height: 80px;
+    background: deeppink;
+    position: relative;
+}
+.head .headMain{
+    width: 1100px;
+    margin: 0 auto;
+    height: 80px;
+}
+.logo{
+    float: left;
+    margin-top: 15px;
+}
+.music{
+    float: left;
+    margin:50px 0 0 10px;
+}
+.list{
+    float: right;
+    margin-top: 50px;
+}
+.list li{
+    float: left;
+    margin-left: 40px;
+}
+.list li a{
+    position: relative;
+
+}
+.list li a:hover .down{
+    width: 100%;
+}
+.up{
+    color: #009EE0;
+}
+.down{
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 0;
+    color: #000;
+    overflow: hidden;
+    transition: 1s;
+}
+body{
+    background: black;
+}
+.arrow{
+    width: 21px;
+    height: 11px;
+    position: absolute;
+    left: 0;
+    transition: left 1s;
+}
