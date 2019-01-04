@@ -70,9 +70,24 @@ body{
     position: absolute;
     top: 80px;
     bottom: 0;
-    
+
 }
 .contentMain{
     height: 500%;
     background: darkblue;
+}
+.contentMain>li{
+    position: relative;
+    height: 20%;
+}
+.liMain{
+    width: 1100px;
+    height: 520px;
+    position: absolute;
+    background: deeppink;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }

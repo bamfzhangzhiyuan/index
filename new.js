@@ -24,10 +24,12 @@ window.onload=function () {
             newLi.style.width="100%"
             oldLi=newLi
             arrow.style.left=liNodes[this.index].getBoundingClientRect().left+liNodes[this.index].offsetWidth/2-arrow.offsetWidth/2+"px"
-            console.log(this.index)
+
         }
 
     }
+  function (newindex) {
 
+  }
 
 }
