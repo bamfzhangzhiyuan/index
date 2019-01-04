@@ -4,8 +4,11 @@
 window.onload=function () {
 
 
+    var child=document.querySelector(".contentMain")
+    var con=document.querySelector(".content")
     var arrow=document.querySelector(".arrow")
-
+    var sum=0
+    var timr=null
 
     var liNodes=document.querySelectorAll(".list li")
     var firstLi=liNodes[0].querySelector(".down")
@@ -17,19 +20,85 @@ window.onload=function () {
             liNodes[i].index=i
         var oldLi=firstLi
         liNodes[i].onclick=function () {
-            var newLi=liNodes[this.index].querySelector(".down")
 
+            sum=this.index
 
-            oldLi.style.width=""
-            newLi.style.width="100%"
-            oldLi=newLi
-            arrow.style.left=liNodes[this.index].getBoundingClientRect().left+liNodes[this.index].offsetWidth/2-arrow.offsetWidth/2+"px"
-
+           contentmove(sum)
         }
 
     }
-  function (newindex) {
 
+    window.onresize=function () {
+        arrow.style.left=liNodes[sum].getBoundingClientRect().left+liNodes[sum].offsetWidth/2-arrow.offsetWidth/2+"px"
+        child.style.top=-con.offsetHeight*sum+"px"
+
+    }
+
+  function move(newindex) {
+      var newLi=liNodes[newindex].querySelector(".down")
+
+
+      oldLi.style.width=""
+      newLi.style.width="100%"
+      oldLi=newLi
+      arrow.style.left=liNodes[newindex].getBoundingClientRect().left+liNodes[newindex].offsetWidth/2-arrow.offsetWidth/2+"px"
   }
 
+
+  document.addEventListener("DOMMouseScroll",wheel)
+  document.onmousewheel=wheel
+
+
+    function contentmove(sum) {
+
+        child.style.top=-con.offsetHeight*sum+"px"
+        move(sum)
+    }
+
+
+    function wheel(event) {
+        clearTimeout(timr)
+        timr=setTimeout(function () {
+            event = event || window.event;
+
+            var flag = '';
+            if (event.wheelDelta) {
+                //ie/chrome
+                if (event.wheelDelta > 0) {
+                    flag = 'up';
+                } else {
+                    flag = 'down'
+                }
+            } else if (event.detail) {
+                //firefox
+                if (event.detail < 0) {
+                    flag = 'up';
+                } else {
+                    flag = 'down'
+                }
+            }
+            switch (flag) {
+                case 'up' :
+
+                    if(sum>0){
+                        sum--
+                        contentmove(sum)
+                    }
+
+                    break;
+                case "down":
+                    if (sum<4){
+                        sum++
+                        contentmove(sum)
+                    }
+
+                    break;
+            }
+            console.log(sum)
+        },200)
+
+        event.preventDefault && event.preventDefault();
+
+        return false;
+        }
 }
