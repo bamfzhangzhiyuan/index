@@ -116,6 +116,7 @@ body{
 }
 .contentMain>li:nth-child(4){
     background-image: url("img/bg4.jpg");
+    overflow: hidden;
 }
 .firstScreen li{
     width: 100%;
@@ -360,6 +361,18 @@ body{
     color: white;
     margin-left: 50px;
 }
+.fiveCon{
+    width: 400px;
+    color: white;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+}
+.fiveTitle{
+    width: 400px;
+    margin:50px 0 100px 50px;
+    float: left;
+}
 .cutTop{
     position: absolute;
     left: 750px;
@@ -442,4 +455,35 @@ body{
     right: 200px;
     top: 0;
     background: url("img/greenLine.png") no-repeat 0 0;
+}
+.teacher{
+    width: 944px;
+    height: 448px;
+    margin: 0 auto;
+    position: absolute;
+    top:230px;
+    left: 0;
+    right: 0;
+}
+.teacher li{
+    float: left;
+    width: 25%;
+    height: 100%;
+    background-image: url("img/team.png");
+    background-repeat: no-repeat;
+}
+.teacher li:nth-child(1){
+    background-position: -3% 0;
+}
+.teacher li:nth-child(2){
+     background-position: 30% 0;
+}
+.teacher li:nth-child(3){
+    background-position: 68% 0;
+}
+.teacher li:nth-child(4){
+    background-position: 100% 0;
+}
+.nav-bar{
+    
 }

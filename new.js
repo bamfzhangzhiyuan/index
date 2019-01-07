@@ -15,6 +15,11 @@ window.onload=function () {
     var firstPoint=document.querySelectorAll(".firstPoint li")
     var firstScreen=document.querySelectorAll(".firstScreen li")
     var firstwrap=document.querySelector(".contentMain>li:nth-child(1) .liMain")
+    var teacher=document.querySelector(".teacher")
+    var teacherLi=teacher.querySelectorAll("li")
+    var canvs=null
+    var timea=null
+    var timeb=null
 
    init()
 
@@ -65,7 +70,7 @@ window.onload=function () {
            child.style.top=-con.offsetHeight*sum+"px"
            move(sum)
        }
-       contentmove(3)
+     /*  contentmove(4)*/
        /*兼容滚轮事件*/
        function wheel(event) {
            clearTimeout(timr)
@@ -176,4 +181,98 @@ window.onload=function () {
 
 
    }
+
+   /*第五屏JS*/
+   Five()
+   function  Five() {
+     var width=teacherLi[0].offsetWidth
+     var height=teacherLi[0].offsetHeight
+     for (var i = 0; i < teacherLi.length; i++) {
+
+         teacherLi[i].index=i
+         teacherLi[i].onmouseenter=function () {
+           if(!canvs){
+               canvs=document.createElement("canvas")
+               /*canvs.style.background="pink"*/
+               canvs.width=width
+               canvs.height=height
+               canvs.style.position="absolute"
+               canvs.style.top=0
+               canvs.style.left=this.index*width+"px"
+               teacher.appendChild(canvs)
+               bubble(canvs)
+             console.log(canvs)
+           }
+           canvs.style.left=this.index*width+"px"
+           function bubble(can) {
+             if (can.getContext) {
+               var canPanit=can.getContext("2d")
+               var width=can.offsetWidth
+               var height=can.offsetHeight
+               var arr=[]
+               timea=setInterval(function () {
+
+                 var x=Math.floor(Math.random()*width)
+
+                 var r=Math.floor(Math.random()*255)
+                 var g=Math.floor(Math.random()*255)
+                 var b=Math.floor(Math.random()*255)
+                 var deg=0
+                 var opacity=1
+                 var scr=Math.floor(Math.random()*8+2)
+                 var y=can.offsetHeight+scr
+                 var s=Math.floor(Math.random()*50+10)
+                 arr.push({
+                   x:x,
+                   y:y,
+                   r:r,
+                   g:g,
+                   b:b,
+                   deg:deg,
+                   scr:scr,
+                   s:s,
+                   opacity:opacity,
+                 })
+
+               }, 50)
+               timeb=setInterval(function () {
+                 canPanit.clearRect(0,0,width,height)
+                 for (var i=0;i<arr.length;i++){
+                   item=arr[i]
+                   item.deg+=5
+                   red=item.deg*Math.PI/180
+
+                   now=Math.floor(item.y-red*item.s)
+                   last=Math.floor(item.x+Math.sin(red)*item.s)
+
+
+
+                   if (item.y<0){
+                     arr.splice(i,1)
+                     continue
+                   }
+
+                   canPanit.fillStyle='rgba('+item.r+','+item.g+','+item.b+','+item.opacity+')'
+
+                   canPanit.beginPath()
+                   canPanit.arc(last,now,item.scr,0,Math.PI*2)
+
+                   canPanit.fill()
+                 }
+
+               },1000/60)
+             }
+           }
+         }
+         teacher.onmouseleave=function () {
+           teacher.removeChild(canvs)
+           canvs=null
+           clearInterval(timea)
+           clearInterval(timeb)
+
+         }
+     }
+   }
+
+
 }
