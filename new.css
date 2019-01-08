@@ -1,489 +1,763 @@
-html,body{height: 100%;overflow: hidden;}
-html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
-a{text-decoration: none;display: block;}
-li{list-style: none;}
-img{display: block;}
-
-.clearfix{*zoom: 1;}
-.clearfix:after{content: "";display: block;clear: both;}
-.common{
-    color:#009ee0; font-size:80px; line-height:0.8;
-    font-weight:bold; letter-spacing:-5px;
-}
-.commontx{
-    color:white; line-height:1.5; font-size:15px;
-}
-.wrap{
-    height: 100%;
-}
-.head{
-    height: 80px;
-z-index: 10;
-    position: relative;
-}
-.head .headMain{
-    width: 1100px;
-    margin: 0 auto;
-    height: 80px;
-}
-.logo{
-    float: left;
-    margin-top: 15px;
-}
-.music{
-    float: left;
-    margin:50px 0 0 10px;
-}
-.list{
-    float: right;
-    margin-top: 50px;
-}
-.list li{
-    float: left;
-    margin-left: 40px;
-}
-.list li a{
-    position: relative;
-
-}
-.list li a:hover .down{
-    width: 100%;
-}
-.up{
-    color: #009EE0;
-}
-.down{
-    position: absolute;
-    left: 0;
-    top:0;
-    width: 0;
-    color: #000;
-    overflow: hidden;
-    transition: 1s;
-}
-body{
-
-}
-.arrow{
-    width: 21px;
-    height: 11px;
-    position: absolute;
-    left: 0;
-    transition: left 1s;
-    z-index: 10;
-}
-.content{
-    width: 100%;
-    position: absolute;
-    top: 80px;
-    bottom: 0;
-    overflow: hidden;
-
-}
-.contentMain{
-    height: 500%;
-    background: darkcyan;
-    position: absolute;
-    width: 100%;
-    top:0;
-    transition: top 1s;
-}
-.contentMain>li{
-    position: relative;
-    height: 20%;
-    background-repeat: no-repeat;
-}
-.liMain{
-    width: 1100px;
-    height: 520px;
-    position: absolute;
-    /*background: deepskyblue;*/
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-}
-.contentMain>li:nth-child(1){
-    background-image: url("img/bg1.jpg");
-}
-.contentMain>li:nth-child(2){
-    background-image: url("img/bg2.jpg");
-    position: relative;
-}
-.contentMain>li:nth-child(3){
-    background-image: url("img/bg3.jpg");
-}
-.contentMain>li:nth-child(4){
-    background-image: url("img/bg4.jpg");
-    overflow: hidden;
-}
-.firstScreen li{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top:0;
-    text-align: center;
-    line-height: 520px;
-    color: white;
-    visibility: hidden;
-}
-.firstPoint{
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.firstPoint li{
-    float: left;
-    width: 20px;
-    height: 20px;
-    background: rgba(255,255,255,0.5);
-    margin-right: 10px;
-    box-shadow:0 0 4px rgba(25,25,25,0.8) ;
-    border-radius: 50%;
-    cursor: pointer;
-}
-.firstPoint .active{
-    background: #ffffff;
-}
-.firstScreen{
-    position: relative;
-    height: 100%;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-}
-.firstScreen li:nth-of-type(1){
-    background:#dc6c5f;
-}
-.firstScreen li:nth-of-type(2){
-    background:#95dc84;
-}
-.firstScreen li:nth-of-type(3){
-    background:#64b9d2;
-}
-.firstScreen li:nth-of-type(4){
-
-    background:#000000;
-}
-.firstScreen .active{
-    visibility: visible;
+html, body {
+  height: 100%;
+  overflow: hidden;
 }
 
-.firstScreen .lefthide{
-    visibility: hidden;
-    animation: lefthide 2s linear;
+html, body, h1, h2, h3, h4, h5, h6, p, ul, li {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "微软雅黑";
 }
-.firstScreen .rightshow{
-    visibility: visible;
-    animation: rightshow 2s linear;
+
+a {
+  text-decoration: none;
+  display: block;
 }
-.firstScreen .leftshow{
-    visibility: visible;
-    animation: leftshow 2s linear;
+
+li {
+  list-style: none;
 }
-.firstScreen .righthide{
-    visibility: hidden;
-    animation: righthide 2s linear;
+
+img {
+  display: block;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.common {
+  color: #009ee0;
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: bold;
+  letter-spacing: -5px;
+}
+
+.commontx {
+  color: white;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.wrap {
+  height: 100%;
+}
+
+.head {
+  height: 80px;
+  z-index: 10;
+  position: relative;
+}
+
+.head .headMain {
+  width: 1100px;
+  margin: 0 auto;
+  height: 80px;
+}
+
+.logo {
+  float: left;
+  margin-top: 15px;
+}
+
+.music {
+  float: left;
+  margin: 50px 0 0 10px;
+}
+
+.list {
+  float: right;
+  margin-top: 50px;
+}
+
+.list li {
+  float: left;
+  margin-left: 40px;
+}
+
+.list li a {
+  position: relative;
+
+}
+
+.list li a:hover .down {
+  width: 100%;
+}
+
+.up {
+  color: #009EE0;
+}
+
+.down {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  color: #000;
+  overflow: hidden;
+  transition: 1s;
+}
+
+body {
+
+}
+
+.arrow {
+  width: 21px;
+  height: 11px;
+  position: absolute;
+  left: 0;
+  transition: left 1s;
+  z-index: 10;
+}
+
+.content {
+  width: 100%;
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  overflow: hidden;
+
+}
+
+.contentMain {
+  height: 500%;
+  background: darkcyan;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transition: top 1s;
+}
+
+.contentMain > li {
+  position: relative;
+  height: 20%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.liMain {
+  width: 1100px;
+  height: 520px;
+  position: absolute;
+  /*background: deepskyblue;*/
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: transform 1s, opacity 1s;
+  z-index: 10;
+
+}
+
+.contentMain > li:nth-child(1) {
+  background-image: url("img/bg1.jpg");
+}
+
+.contentMain > li:nth-child(2) {
+  background-image: url("img/bg2.jpg");
+  position: relative;
+}
+
+.contentMain > li:nth-child(3) {
+  background-image: url("img/bg3.jpg");
+}
+
+.contentMain > li:nth-child(4) {
+  background-image: url("img/bg4.jpg");
+  overflow: hidden;
+}
+
+.firstScreen li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  line-height: 520px;
+  color: white;
+  visibility: hidden;
+}
+
+.firstPoint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.firstPoint li {
+  float: left;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  margin-right: 10px;
+  box-shadow: 0 0 4px rgba(25, 25, 25, 0.8);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.firstPoint .active {
+  background: #ffffff;
+}
+
+.firstScreen {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.firstScreen li:nth-of-type(1) {
+  background: #dc6c5f;
+}
+
+.firstScreen li:nth-of-type(2) {
+  background: #95dc84;
+}
+
+.firstScreen li:nth-of-type(3) {
+  background: #64b9d2;
+}
+
+.firstScreen li:nth-of-type(4) {
+
+  background: #000000;
+}
+
+.firstScreen .active {
+  visibility: visible;
+}
+
+.firstScreen .lefthide {
+  visibility: hidden;
+  animation: lefthide 2s linear;
+}
+
+.firstScreen .rightshow {
+  visibility: visible;
+  animation: rightshow 2s linear;
+}
+
+.firstScreen .leftshow {
+  visibility: visible;
+  animation: leftshow 2s linear;
+}
+
+.firstScreen .righthide {
+  visibility: hidden;
+  animation: righthide 2s linear;
 }
 
 @keyframes lefthide {
-    0%{visibility: visible}
-    50%{transform: translatex(-40%) rotateY(30deg) scale(.8)}
-    100%{visibility: hidden;transform:translateZ(-200px)}
+  0% {
+    visibility: visible
+  }
+  50% {
+    transform: translatex(-40%) rotateY(30deg) scale(.8)
+  }
+  100% {
+    visibility: hidden;
+    transform: translateZ(-200px)
+  }
 }
 
 @keyframes rightshow {
-    0%{visibility: hidden;transform:translateZ(-200px)}
-    50%{transform: translatex(40%) rotateY(-30deg) scale(.8)}
-    100%{visibility: visible ;}
+  0% {
+    visibility: hidden;
+    transform: translateZ(-200px)
+  }
+  50% {
+    transform: translatex(40%) rotateY(-30deg) scale(.8)
+  }
+  100% {
+    visibility: visible;
+  }
 }
 
 @keyframes leftshow {
-    0%{visibility: hidden;transform:translateZ(-200px)}
-    50%{transform: translatex(-40%) rotateY(30deg) scale(.8)}
-    100%{visibility: visible ;}
+  0% {
+    visibility: hidden;
+    transform: translateZ(-200px)
+  }
+  50% {
+    transform: translatex(-40%) rotateY(30deg) scale(.8)
+  }
+  100% {
+    visibility: visible;
+  }
 }
+
 @keyframes righthide {
-    0%{visibility: visible}
-    50%{transform: translatex(40%) rotateY(-30deg) scale(.8)}
-    100%{visibility: hidden;transform:translateZ(-200px)}
-}
-.secTitle{
-    width: 400px;
-    margin: 50px;
-}
-.secContent{
-    width: 400px;
-    margin-left: 50px;
-}
-.imglist{
-    position: absolute;
-    width: 480px;
-    top:70px;
-    right: 50px;
-    z-index: 10;
-}
-.imglist li{
-    position: relative;
-    float: left;
-    width: 120px;
-    height: 132px;
-    transform-style: preserve-3d;
-    transform: rotateY(180deg);
-    transition: transform 3s;
-}
-.imglist li:hover{
-    transform: rotateY(360deg);
+  0% {
+    visibility: visible
+  }
+  50% {
+    transform: translatex(40%) rotateY(-30deg) scale(.8)
+  }
+  100% {
+    visibility: hidden;
+    transform: translateZ(-200px)
+  }
 }
 
-.imglist li .front{
-    position: absolute;
-    left: 0;
-    top:0;
-    background: url("img/pcwelt.png") no-repeat center;
+.secTitle {
+  width: 400px;
+  margin: 50px;
+}
 
-    width: 100%;
-    height: 100%;
-    transform: rotateY(180deg);
+.secContent {
+  width: 400px;
+  margin-left: 50px;
+}
 
+.imglist {
+  position: absolute;
+  width: 480px;
+  top: 70px;
+  right: 50px;
+  z-index: 10;
 }
-.imglist li .back{
 
-    position: absolute;
-    left: 0;
-    top:0;
-    text-align: center;
-    background:#009ee0;
-    box-sizing: border-box;
-    padding: 15px;
-    height: 132px;
-    backface-visibility: hidden;
+.imglist li {
+  position: relative;
+  float: left;
+  width: 120px;
+  height: 132px;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+  transition: transform 3s;
+}
 
+.imglist li:hover {
+  transform: rotateY(360deg);
 }
-.threeTitle{
-    width: 400px;
-}
-.imglistBack li{
-    width: 9px;
-    height: 410px;
-    background: url("img/plus_row.png") no-repeat 0 0;
-    float: left;
-    margin-left: 110px;
-}
-.imglistBack{
-    position: absolute;
-    top: 65px;
-    right: 50px;
 
-}
-.threeTitle{
-    margin: 50px 0 100px 50px;
-}
-.threeList{
-    margin-left: 50px;
-}
-.threeList li{
-    float: left;
-    width: 220px;
-    height: 133px;
-    margin-right: 1px;
-    position: relative;
-    overflow: hidden;
-}
-.threeList img{
-    transition: transform 1s;
-}
-.threeList li:last-child{
-    width: 332px;
-}
-.threeList li .threeMask{
-    position: absolute;
-    left: 0;
-    top:0;
-    width: 100%;
-    height: 100%;
-    color: white;
-    box-sizing: border-box;
-    padding: 10px;
-    background: rgba(25,25,25,0.8);
+.imglist li .front {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url("img/pcwelt.png") no-repeat center;
 
-    opacity: 0;
-    transition: opacity 1s;
-}
-.threeList li .threeMask span{
-    display: block;
-    width: 35px;
-    height: 35px;
-    margin: 20px auto;
-    background-image: url(img/zoomico.png) ;
-    background-repeat: no-repeat;
-    background-position: 0 0px;
-    transition:background-position 1s ;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(180deg);
 
 }
-.threeList li:hover .threeMask{
-    opacity: 1;
+
+.imglist li .back {
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  background: #009ee0;
+  box-sizing: border-box;
+  padding: 15px;
+  height: 132px;
+  backface-visibility: hidden;
 
 }
-.threeList li:hover .threeMask span{
-    background-position:0 -35px;
+
+.threeTitle {
+  width: 400px;
 }
-.threeList li:hover img{
-    transform: rotate(30deg) scale(1.3);
+
+.imglistBack li {
+  width: 9px;
+  height: 410px;
+  background: url("img/plus_row.png") no-repeat 0 0;
+  float: left;
+  margin-left: 110px;
+}
+
+.imglistBack {
+  position: absolute;
+  top: 65px;
+  right: 50px;
 
 }
-.robot{
-    position: absolute;
-    width: 167px;
-    height: 191px;
-    left: 900px;
-    top: 170px;
-    background: url("img/robot.png") no-repeat 0 0;
-    animation:robot 4s infinite;
+
+.threeTitle {
+  margin: 50px 0 100px 50px;
+}
+
+.threeList {
+  margin-left: 50px;
+
+
+}
+
+.threeList li {
+  float: left;
+  width: 220px;
+  height: 133px;
+  margin-right: 1px;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.threeList img {
+  transition: transform 1s;
+}
+
+.threeList li:last-child {
+  width: 332px;
+}
+
+.threeList li .threeMask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  box-sizing: border-box;
+  padding: 10px;
+  background: rgba(25, 25, 25, 0.8);
+
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.threeList li .threeMask span {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin: 20px auto;
+  background-image: url(img/zoomico.png);
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+  transition: background-position 1s;
+
+}
+
+.threeList li:hover .threeMask {
+  opacity: 1;
+
+}
+
+.threeList li:hover .threeMask span {
+  background-position: 0 -35px;
+}
+
+.threeList li:hover img {
+  transform: rotate(30deg) scale(1.3);
+
+}
+
+.robot {
+  position: absolute;
+  width: 167px;
+  height: 191px;
+  left: 900px;
+  top: 170px;
+  background: url("img/robot.png") no-repeat 0 0;
+  animation: robot 4s infinite;
 
 }
 
 @keyframes robot {
-    0%{}
-    49%{ transform:translateX(-400px) rotateY(0deg)}
-    50%{transform: translateX(-400px) rotateY(180deg)}
-    100%{transform: rotateY(180deg)}
+  0% {
+  }
+  49% {
+    transform: translateX(-400px) rotateY(0deg)
+  }
+  50% {
+    transform: translateX(-400px) rotateY(180deg)
+  }
+  100% {
+    transform: rotateY(180deg)
+  }
 
 }
-.fourTitle{
-    width: 400px;
-    margin:50px 0 100px 50px;
-}
-.fourCon{
-    width: 400px;
-    color: white;
-    margin-left: 50px;
-}
-.fiveCon{
-    width: 400px;
-    color: white;
-    position: absolute;
-    right: 50px;
-    top: 50px;
-}
-.fiveTitle{
-    width: 400px;
-    margin:50px 0 100px 50px;
-    float: left;
-}
-.cutTop{
-    position: absolute;
-    left: 750px;
-    top: 50px;
-    width: 260px;
-    height: 200px;
-    border: 5px solid rgba(255,255,255,0.5);
-    border-radius: 8px;
-    z-index: 10;
-}
-.cutTop ul,.cutBottom ul{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 
-    /*background: url("img/about2.jpg") no-repeat 0 0;*/
+.fourTitle {
+  width: 400px;
+  margin: 50px 0 100px 50px;
 }
-.cutTop ul li,.cutBottom ul li{
-    width: 100%;
-    height: 100%;
-    transition: 1s;
-}
-.cutTop ul div li{
-    background-image: url("img/about2.jpg");
-    background-repeat: no-repeat;
-}
-.cutBottom ul div li{
-    background-image: url("img/about4.jpg");
-    background-repeat: no-repeat;
-}
-.cutTop ul div:nth-of-type(1) li,.cutBottom ul div:nth-of-type(1) li{
-    background-position: 0 0;
-}
-.cutTop ul div:nth-of-type(2) li,.cutBottom ul div:nth-of-type(2) li{
 
-    background-position:-130px 0;
+.fourCon {
+  width: 400px;
+  color: white;
+  margin-left: 50px;
 }
-.cutTop ul div:nth-of-type(3) li,.cutBottom ul div:nth-of-type(3) li{
 
-    background-position:0 -100px;
+.fiveCon {
+  width: 400px;
+  color: white;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  transition: transform 1s;
 }
-.cutTop ul div:nth-of-type(4) li,.cutBottom ul div:nth-of-type(4) li{
 
-    background-position:-130px -100px;
+.fiveTitle {
+  width: 400px;
+  margin: 50px 0 100px 50px;
+  float: left;
+  transition: transform 1s;
 }
-.cutTop ul:hover div:nth-child(1) li,.cutBottom ul:hover div:nth-child(1) li{
-    transform: translateY(100px);
+
+.cutTop {
+  position: absolute;
+  left: 750px;
+  top: 50px;
+  width: 260px;
+  height: 200px;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  z-index: 10;
+  transition: transform 1s;
 }
-.cutTop ul:hover div:nth-child(2) li,.cutBottom ul:hover div:nth-child(2) li{
-    transform: translateX(-130px);
+
+.cutTop ul, .cutBottom ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /*background: url("img/about2.jpg") no-repeat 0 0;*/
 }
-.cutTop ul:hover div:nth-child(3) li,.cutBottom ul:hover div:nth-child(3) li{
-    transform: translateX(130px);
+
+.cutTop ul li, .cutBottom ul li {
+  width: 100%;
+  height: 100%;
+  transition: 1s;
 }
-.cutTop ul:hover div:nth-child(4) li,.cutBottom ul:hover div:nth-child(4) li{
-    transform: translateY(-100px);
+
+.cutTop ul div li {
+  background-image: url("img/about2.jpg");
+  background-repeat: no-repeat;
 }
-.cutTop ul div,.cutBottom ul div{
-    width: 50%;
-    height: 50%;
-    float: left;
-    overflow: hidden;
+
+.cutBottom ul div li {
+  background-image: url("img/about4.jpg");
+  background-repeat: no-repeat;
 }
-.cutBottom{
-    position: absolute;
-    left: 600px;
-    top: 290px;
-    width: 260px;
-    height: 200px;
-    border: 5px solid rgba(255,255,255,0.5);
-    border-radius: 8px;
-    z-index: 10;
+
+.cutTop ul div:nth-of-type(1) li, .cutBottom ul div:nth-of-type(1) li {
+  background-position: 0 0;
 }
-.line{
-    width: 357px;
-    height: 998px;
-    position: absolute;
-    right: 200px;
-    top: 0;
-    background: url("img/greenLine.png") no-repeat 0 0;
+
+.cutTop ul div:nth-of-type(2) li, .cutBottom ul div:nth-of-type(2) li {
+
+  background-position: -130px 0;
 }
-.teacher{
-    width: 944px;
-    height: 448px;
-    margin: 0 auto;
-    position: absolute;
-    top:230px;
-    left: 0;
-    right: 0;
+
+.cutTop ul div:nth-of-type(3) li, .cutBottom ul div:nth-of-type(3) li {
+
+  background-position: 0 -100px;
 }
-.teacher li{
-    float: left;
-    width: 25%;
-    height: 100%;
-    background-image: url("img/team.png");
-    background-repeat: no-repeat;
+
+.cutTop ul div:nth-of-type(4) li, .cutBottom ul div:nth-of-type(4) li {
+
+  background-position: -130px -100px;
 }
-.teacher li:nth-child(1){
-    background-position: -3% 0;
+
+.cutTop ul:hover div:nth-child(1) li, .cutBottom ul:hover div:nth-child(1) li {
+  transform: translateY(100px);
 }
-.teacher li:nth-child(2){
-     background-position: 30% 0;
+
+.cutTop ul:hover div:nth-child(2) li, .cutBottom ul:hover div:nth-child(2) li {
+  transform: translateX(-130px);
 }
-.teacher li:nth-child(3){
-    background-position: 68% 0;
+
+.cutTop ul:hover div:nth-child(3) li, .cutBottom ul:hover div:nth-child(3) li {
+  transform: translateX(130px);
 }
-.teacher li:nth-child(4){
-    background-position: 100% 0;
+
+.cutTop ul:hover div:nth-child(4) li, .cutBottom ul:hover div:nth-child(4) li {
+  transform: translateY(-100px);
 }
-.nav-bar{
-    
+
+.cutTop ul div, .cutBottom ul div {
+  width: 50%;
+  height: 50%;
+  float: left;
+  overflow: hidden;
+}
+
+.cutBottom {
+  position: absolute;
+  left: 600px;
+  top: 290px;
+  width: 260px;
+  height: 200px;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  z-index: 10;
+  transition: transform 1s;
+}
+
+.line {
+  width: 357px;
+  height: 998px;
+  position: absolute;
+  right: 200px;
+  top: 0;
+  background: url("img/greenLine.png") no-repeat 0 0;
+}
+
+.teacher {
+  width: 944px;
+  height: 448px;
+  margin: 0 auto;
+  position: absolute;
+  top: 230px;
+  left: 0;
+  right: 0;
+}
+
+.teacher li {
+  float: left;
+  width: 25%;
+  height: 100%;
+  background-image: url("img/team.png");
+  background-repeat: no-repeat;
+}
+
+.teacher li:nth-child(1) {
+  background-position: -3% 0;
+}
+
+.teacher li:nth-child(2) {
+  background-position: 30% 0;
+}
+
+.teacher li:nth-child(3) {
+  background-position: 68% 0;
+}
+
+.teacher li:nth-child(4) {
+  background-position: 100% 0;
+}
+
+.nav-bar {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.nav-bar li {
+  width: 15px;
+  height: 15px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.nav-bar li.active {
+  background: #ffffff;
+}
+
+.plane1 {
+  width: 359px;
+  height: 283px;
+  background: url(img/plane1.png) no-repeat;
+  position: absolute;
+  left: 300px;
+  top: -100px;
+  transition: 1s;
+}
+
+.plane2 {
+  width: 309px;
+  height: 249px;
+  background: url(img/plane2.png) no-repeat;
+  position: absolute;
+  left: -100px;
+  top: 200px;
+  transition: 1s;
+}
+
+.plane3 {
+  width: 230px;
+  height: 182px;
+  background: url(img/plane3.png) no-repeat;
+  position: absolute;
+  left: 300px;
+  top: 400px;
+  transition: 1s;
+}
+
+.pencel1 {
+  width: 180px;
+  height: 97px;
+  background: url(img/pencel1.png) no-repeat;
+  position: absolute;
+  transition: 1s;
+  left: 500px;
+  top: 0;
+}
+
+.pencel2 {
+  width: 268px;
+  height: 38px;
+  background: url(img/pencel2.png) no-repeat;
+  position: absolute;
+  transition: 1s;
+  left: 300px;
+  top: 250px;
+}
+
+.pencel3 {
+  width: 441px;
+  height: 231px;
+  background: url(img/pencel3.png) no-repeat;
+  position: absolute;
+  transition: 1s;
+  left: 650px;
+  top: 300px;
+}
+.mask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.maskTop{
+  position: absolute;
+  height: 50%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background: #009ee0;
+  transition: height 1s;
+  width: 100%;
+}
+.maskBottom{
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  background: #009ee0;
+  transition: height 1s;
+}
+.maskLine{
+  height: 4px;
+  width: 0;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  z-index: 21;
+  transition: width 1s;
 }
